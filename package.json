@@ -12,12 +12,16 @@
 		"react-scripts": "3.3.1"
 	},
 	"scripts": {
-		"start": "react-scripts start",
 		"build": "react-scripts build",
-		"test": "react-scripts test",
 		"eject": "react-scripts eject",
+		"eslint:check": " eslint . --cache --cache-location node_modules/.cache/eslint --ext .js,.jsx,.ts,.tsx",
+		"eslint:fix": " eslint . --fix --cache --cache-location node_modules/.cache/eslint --ext .js,.jsx,.ts,.tsx",
+		"precommit:check": "yarn prettier:check && yarn eslint:check",
+		"precommit:fix": "yarn eslint:fix && yarn prettier:fix",
 		"prettier:check": "prettier --check .prettierrc \"./src/**/*.{js,ts,tsx,jsx,json,md,scss}\"",
-		"prettier:fix": "prettier --write .prettierrc \"./src/**/*.{js,ts,tsx,jsx,json,md,scss}\""
+		"prettier:fix": "prettier --write .prettierrc \"./src/**/*.{js,ts,tsx,jsx,json,md,scss}\"",
+		"start": "react-scripts start",
+		"test": "react-scripts test"
 	},
 	"eslintConfig": {
 		"extends": "react-app"
