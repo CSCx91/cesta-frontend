@@ -16,8 +16,8 @@
 		"build": "react-scripts build",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject",
-		"prettier:check": "prettier --check prettier.config.json \"./src/**/*.{js,ts,tsx,jsx,json,md,scss}\"",
-		"prettier:fix": "prettier --write prettier.config.json \"./src/**/*.{js,ts,tsx,jsx,json,md,scss}\""
+		"prettier:check": "prettier --check .prettierrc \"./src/**/*.{js,ts,tsx,jsx,json,md,scss}\"",
+		"prettier:fix": "prettier --write .prettierrc \"./src/**/*.{js,ts,tsx,jsx,json,md,scss}\""
 	},
 	"eslintConfig": {
 		"extends": "react-app"
@@ -35,6 +35,11 @@
 		]
 	},
 	"devDependencies": {
+		"eslint": "^6.8.0",
+		"eslint-config-airbnb": "^18.0.1",
+		"eslint-config-prettier": "^6.10.0",
+		"eslint-plugin-jsx-a11y": "^6.2.3",
+		"eslint-plugin-prettier": "^3.1.2",
 		"prettier": "^1.19.1"
 	}
 }

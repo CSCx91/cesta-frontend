@@ -1,0 +1,9 @@
+
+# dependencies
+/node_modules
+src/serviceWorker.js
+/.pnp
+.pnp.js
+
+# testing
+/coverage
