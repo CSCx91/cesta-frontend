@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 // Import your testing components here!
 // Feel free to remove any test components that were already here
@@ -6,10 +6,7 @@ import InputBlock from '../InputBlock';
 
 const TestComponent = () => {
 	const [email, setEmail] = useState('');
-
-	useEffect(() => {
-		console.log(email);
-	}, [email]);
+	const [password, setPassword] = useState('');
 
 	return (
 		<>
@@ -20,12 +17,20 @@ const TestComponent = () => {
 				onChange={(v) => setEmail(v)}
 				id='email'
 			/>
+
+			<InputBlock
+				type='password'
+				label='Password'
+				value={password}
+				onChange={(v) => setPassword(v)}
+				id='email'
+			/>
 		</>
 	);
 };
 
-const Foo = () => {
-	return <div>Foo</div>;
-};
+// const Foo = () => {
+// 	return <div>Foo</div>;
+// };
 
 export default TestComponent;
