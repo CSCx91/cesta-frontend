@@ -1,11 +1,15 @@
 import React from 'react';
 
 import SearchBlock from '../SearchBlock';
+import NavLinks from '../Navlinks';
+
+import styles from './index.module.scss';
 
 const Navbar = () => {
 	return (
-		<div>
+		<div className={styles['navbar-container']}>
 			<SearchBlock />
+			<NavLinks />
 		</div>
 	);
 };

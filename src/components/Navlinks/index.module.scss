@@ -1,0 +1,18 @@
+@import '../../scss/colors.scss';
+
+.nav-links-container {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-grow: 1;
+
+  .nav-link {
+    font-size: 22px;
+
+    a{
+      color: $black;
+      text-decoration: none;
+    }
+  }
+}
