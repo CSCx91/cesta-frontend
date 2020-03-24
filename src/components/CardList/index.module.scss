@@ -1,0 +1,9 @@
+@import '../../scss/colors.scss';
+
+.card-list-container {
+	list-style-type: none;
+	padding: 0;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+	grid-gap: 2rem;
+}
