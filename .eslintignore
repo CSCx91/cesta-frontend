@@ -7,3 +7,4 @@ src/serviceWorker.js
 
 # testing
 /coverage
+*config.*
