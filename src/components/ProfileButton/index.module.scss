@@ -1,0 +1,51 @@
+@import '../../scss/colors.scss';
+
+.arrow-img {
+	padding-left: 10px;
+}
+
+.avatar-img {
+	border: $light-blue 3px solid;
+	border-radius: 50%;
+	box-sizing: border-box;
+	padding: 2px;
+	vertical-align: middle;
+}
+
+.greeting-container {
+	padding-left: 10px;
+}
+
+.profile-btn {
+	background-color: inherit;
+	border: none;
+	font: inherit;
+	outline: none;
+}
+
+.profile-dropdown {
+	border: #cccccc 1px solid;
+	border-radius: 5px;
+	box-sizing: border-box;
+	visibility: hidden;
+	opacity: 0;
+	margin-top: 10px;
+	padding: 5px;
+	align-self: flex-end;
+	position: absolute;
+	transition: ease-in-out 1s;
+
+	&--show {
+		visibility: visible;
+		opacity: 1;
+	}
+
+	.dropdown-item {
+		button {
+			background-color: inherit;
+			border: none;
+			font: inherit;
+			outline: none;
+		}
+	}
+}

@@ -1,0 +1,11 @@
+.dashboard-recommended-container {
+	background-color: #faf8f4;
+	display: grid;
+	grid-template-columns: minmax(10vw, 1fr) minmax(0, 90rem) minmax(10vw, 1fr);
+	padding: 2.83rem 0;
+	box-sizing: border-box;
+
+	div {
+		grid-column: 2;
+	}
+}
