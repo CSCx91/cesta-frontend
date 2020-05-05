@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import classnames from 'classnames';
+import ProfileButton from '../ProfileButton';
 import styles from './index.module.scss';
-import CartIcon from '../../assets/images/cart-icon.svg';
+// import CartImage from '../../assets/images/cart-icon.svg';
 
 const navData = [
 	{
@@ -23,6 +23,18 @@ const navData = [
 	},
 ];
 
+// const CartIcon = (props) => {
+// 	const { itemsInCart } = props;
+
+// 	return (
+// 		<div>
+// 			{itemsInCart !== 0 && <div className={styles['cart-item-count']}>{itemsInCart}</div>}
+
+// 			<img src={CartImage} alt='' className={styles['cart-icon']} />
+// 		</div>
+// 	);
+// };
+
 const NavLinks = () => {
 	return (
 		<div className={styles['nav-links-container']}>
@@ -31,11 +43,15 @@ const NavLinks = () => {
 					<Link to={data.route}>{data.name}</Link>
 				</div>
 			))}
-			<div className={classnames(styles['nav-link'], styles['cart-link'])}>
-				<img src={CartIcon} alt='' className={styles['cart-icon']} />
-				Cart
+			{/* <div className={styles['nav-link']}>
+				<div className={styles['cart-link']}>
+					<CartIcon itemsInCart={4} />
+					<div>Cart</div>
+				</div>
+			</div> */}
+			<div className={styles['nav-link']}>
+				<ProfileButton name='Gonzalo' />
 			</div>
-			<div>Hi, {'Gonzalo'}</div>
 		</div>
 	);
 };
