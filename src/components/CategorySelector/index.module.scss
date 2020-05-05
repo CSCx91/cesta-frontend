@@ -1,0 +1,29 @@
+.category-container {
+	font-size: 1.5em;
+	font-weight: bold;
+	margin-top: 3.2em;
+	padding-left: 7vw;
+	padding-right: 7vw;
+
+	.category-img-container {
+		display: flex;
+
+		.category-img {
+			margin: 20px 25px 0px 0px;
+			position: relative;
+
+			img {
+				border-radius: 5px;
+				filter: brightness(60%);
+			}
+
+			div {
+				bottom: 24px;
+				color: white;
+				font-weight: bolder;
+				position: absolute;
+				right: 16px;
+			}
+		}
+	}
+}

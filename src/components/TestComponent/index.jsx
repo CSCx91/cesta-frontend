@@ -4,12 +4,14 @@ import React from 'react';
 // Feel free to remove any test components that were already here
 import Navbar from '../Navbar';
 import TransactionTypeSelector from '../TransactionTypeSelector';
+import CategorySelector from '../CategorySelector';
 
 const TestComponent = () => {
 	return (
 		<>
 			<Navbar />
 			<TransactionTypeSelector />
+			<CategorySelector />
 		</>
 	);
 };
