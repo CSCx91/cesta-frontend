@@ -1,0 +1,15 @@
+.dashboard-bottom-container {
+	display: grid;
+	grid-template-columns: minmax(10vw, 1fr) minmax(0, 90rem) minmax(10vw, 1fr);
+	grid-template-rows: auto 1fr;
+	padding: 2.83rem 0;
+	box-sizing: border-box;
+}
+
+.dashboard-bottom-content {
+	grid-column: 2;
+}
+
+.dashboard-bottom-content-full {
+	grid-column: 1/4;
+}

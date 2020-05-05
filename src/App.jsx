@@ -3,14 +3,20 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 // import TestComponent from './components/TestComponent';
 import './App.scss';
 // import Card from './components/Card';
-import CardList from './components/CardList';
+import TestComponent from './components/TestComponent';
+import Dashboard from './pages/Dashboard';
+import SearchResult from './pages/SearchResult';
+import Login from './pages/Login';
 
 function App() {
 	return (
 		<div className='App'>
 			<Router>
 				<Switch>
-					<Route path='/test' component={CardList} />
+					<Route path='/login' component={Login} />
+					<Route path='/dashboard' component={Dashboard} />
+					<Route path='/results/:id' component={SearchResult} />
+					<Route path='/test' component={TestComponent} />
 				</Switch>
 			</Router>
 		</div>
