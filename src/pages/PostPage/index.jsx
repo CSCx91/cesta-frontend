@@ -8,13 +8,13 @@ import CategoryCardList from '../../components/CategoryCardList';
 import Subheading from '../../components/Subheading';
 import RadioSelector from '../../components/RadioSelector';
 
-const SellPage = () => {
+const PostPage = () => {
 	const [title, setTitle] = useState('');
 	const [amount, setAmount] = useState(0.0);
 	const [negotiable, setNegotiable] = useState(false);
-  const [category, setCategory] = useState(0);
-  const [condition, setCondition] = useState(0);
-  
+	const [category, setCategory] = useState(0);
+	const [condition, setCondition] = useState(0);
+
 	return (
 		<div>
 			<Navbar />
@@ -57,17 +57,26 @@ const SellPage = () => {
 				</div>
 				<RadioSelector
 					options={['books', 'classnotes', 'footwear', 'electronics', 'clothes', 'others']}
-          name='category'
-          changeHandler={setCategory}
+					name='category'
+					changeHandler={setCategory}
 				/>
 				<RadioSelector
 					options={['used', 'fairly-used', 'used-once', 'brand-new']}
-          name='condition'
-          changeHandler={setCondition}
+					name='condition'
+					changeHandler={setCondition}
 				/>
+				<div className={styles['button-container']}>
+					<button className={styles['request-btn']} type='button'>
+						Request
+					</button>{' '}
+					or{' '}
+					<button className={styles['sell-btn']} type='button'>
+						Sell
+					</button>
+				</div>
 			</Container>
 		</div>
 	);
 };
 
-export default SellPage;
+export default PostPage;

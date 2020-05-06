@@ -7,7 +7,7 @@ import TestComponent from './components/TestComponent';
 import Dashboard from './pages/Dashboard';
 import SearchResult from './pages/SearchResult';
 import Login from './pages/Login';
-import SellPage from './pages/Sell';
+import PostPage from './pages/PostPage';
 
 function App() {
 	return (
@@ -17,7 +17,7 @@ function App() {
 					<Route path='/login' component={Login} />
 					<Route path='/dashboard' component={Dashboard} />
 					<Route path='/results/:id' component={SearchResult} />
-          <Route path='/sell' component={SellPage} />
+          <Route path='/post' component={PostPage} />
 					<Route path='/test' component={TestComponent} />
 				</Switch>
 			</Router>

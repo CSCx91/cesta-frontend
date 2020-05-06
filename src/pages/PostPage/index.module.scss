@@ -1,0 +1,39 @@
+@import '../../scss/colors.scss';
+
+.checkbox-container {
+	font-size: 20px;
+
+	.label-container {
+		margin-top: 20px;
+	}
+}
+
+.button-container {
+	font-size: 20px;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 50px;
+  
+
+	button {
+    border-radius: 5px;
+    color: $white;
+    cursor: pointer;
+		font-size: inherit;
+		font-weight: bolder;
+    text-transform: uppercase;
+    padding: 20px;
+    border: none;
+    width: 10em;
+  }
+  
+  .request-btn {
+    background-color: $light-teal;
+  }
+
+  .sell-btn {
+    background-color: $teal;
+  }
+}

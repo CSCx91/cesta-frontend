@@ -10,12 +10,8 @@ const navData = [
 		route: '/home',
 	},
 	{
-		name: 'Request',
-		route: '/request',
-	},
-	{
-		name: 'Sell',
-		route: '/sell',
+		name: 'Post',
+		route: '/post',
 	},
 	{
 		name: 'Saved',
