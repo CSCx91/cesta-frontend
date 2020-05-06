@@ -1,0 +1,68 @@
+@import '../../scss/colors.scss';
+
+.input-block-container {
+	font-size: 20px;
+
+	.input-super-container {
+		display: flex;
+		flex-direction: row;
+		margin: 10px 0px;
+		// width from the design
+		width: 516px;
+
+		&--focused {
+			box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+		}
+
+		.icon-container {
+			border: $light-grey 1px solid;
+			border-radius: 5px 0px 0px 5px;
+			box-sizing: border-box;
+			display: flex;
+
+			.email-icon {
+				padding: 20px;
+			}
+
+			.password-icon {
+				padding: 20px 22px;
+			}
+		}
+
+		.input-container {
+			border: $light-grey 1px solid;
+			border-radius: 5px;
+			box-sizing: border-box;
+			display: flex;
+			width: 100%;
+
+			button {
+				background-color: $white;
+				border: none;
+				outline: none;
+
+				.eye-icon {
+					padding: 20px;
+				}
+			}
+
+			input {
+				border: none;
+				box-sizing: border-box;
+				font-size: 20px;
+				outline: none;
+				padding: 20px;
+				width: 100%;
+			}
+
+			.password-input {
+				// 51 px is the size of the eye icon and the padding
+				width: calc(100% - 71px);
+			}
+		}
+	}
+
+	.label-container {
+		margin-top: 20px;
+	}
+}
