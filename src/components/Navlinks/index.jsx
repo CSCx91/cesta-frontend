@@ -7,7 +7,7 @@ import styles from './index.module.scss';
 const navData = [
 	{
 		name: 'Home',
-		route: '/home',
+		route: '/',
 	},
 	{
 		name: 'Post',
