@@ -1,19 +1,78 @@
 import React, { useState } from 'react';
+import { gql } from 'apollo-boost';
+import { useMutation } from '@apollo/react-hooks';
+
 import InputTextBlock from '../../components/InputTextBlock';
 import Navbar from '../../components/Navbar';
 import Container from '../../components/Container';
+import RadioSelector from '../../components/RadioSelector';
 
 import styles from './index.module.scss';
-import CategoryCardList from '../../components/CategoryCardList';
-import Subheading from '../../components/Subheading';
-import RadioSelector from '../../components/RadioSelector';
+
+// broken gql
+const ADD_ITEM = gql`
+	mutation addItem(
+		$price: Int!
+		$title: String!
+		$condition: Int!
+		$description: String!
+		$pictures: [String]
+		$category: Int!
+		$negotiable: Boolean!
+	) {
+		addItem(
+			price: $price
+			title: $title
+			condition: $condition
+			description: $description
+			pictures: $pictures
+			category: $category
+			negotiable: $negotiable
+		) {
+			id
+			title
+		}
+	}
+`;
 
 const PostPage = () => {
 	const [title, setTitle] = useState('');
-	const [amount, setAmount] = useState(0.0);
+	const [description, setDescription] = useState('');
+	const [price, setPrice] = useState(0);
 	const [negotiable, setNegotiable] = useState(false);
 	const [category, setCategory] = useState(0);
 	const [condition, setCondition] = useState(0);
+
+	const [addItem, { error }] = useMutation(ADD_ITEM);
+
+	const requestHandler = () => {
+		console.log({
+			price,
+			title,
+			condition,
+			description,
+			pictures: [],
+			category,
+			negotiable,
+		});
+		addItem({
+			variables: {
+				price,
+				title,
+				condition,
+				description,
+				pictures: [''],
+				category,
+				negotiable: false,
+			},
+		});
+	};
+
+	const sellHandler = () => {
+		addItem({});
+	};
+
+	if (error) return `Error! ${error.message}`;
 
 	return (
 		<div>
@@ -29,18 +88,17 @@ const PostPage = () => {
 				<InputTextBlock
 					id='Price'
 					label='Price (in $)'
-					onChange={(val) => setAmount(val)}
+					onChange={(val) => setPrice(val)}
 					placeholder='0.00'
 					type='number'
-					value={amount}
+					value={price}
 				/>
 				<InputTextBlock
-					id='Amount'
-					label='Amount (in $)'
-					onChange={(val) => setAmount(val)}
-					placeholder='0.00'
-					type='number'
-					value={amount}
+					id='Description'
+					label='Short Description'
+					onChange={(val) => setDescription(val)}
+					placeholder='Description here...'
+					value={description}
 				/>
 				<div className={styles['checkbox-container']}>
 					<div className={styles['label-container']}>
@@ -66,11 +124,23 @@ const PostPage = () => {
 					changeHandler={setCondition}
 				/>
 				<div className={styles['button-container']}>
-					<button className={styles['request-btn']} type='button'>
+					<button
+						className={styles['request-btn']}
+						type='button'
+						onClick={(e) => {
+							e.preventDefault();
+							requestHandler();
+						}}>
 						Request
 					</button>{' '}
 					or{' '}
-					<button className={styles['sell-btn']} type='button'>
+					<button
+						className={styles['sell-btn']}
+						type='button'
+						onClick={(e) => {
+							e.preventDefault();
+							sellHandler();
+						}}>
 						Sell
 					</button>
 				</div>

@@ -2,28 +2,34 @@ import React from 'react';
 import styles from './index.module.scss';
 // eslint-disable-next-line import/no-unresolved
 
-// Import your testing components here!
-// Feel free to remove any test components that were already here
+const conditionRating = {
+	0: 'Used',
+	1: 'Fairly Used',
+	2: 'Used Once',
+	3: 'Brand New',
+};
+
+const imgNotFound = 'https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png';
 
 const Card = ({ cardProps }) => {
-	const { img, price, viewers, category, location, desc, date, seller, type } = cardProps;
+	const { pictures, price, title, category, condition } = cardProps;
 
 	return (
 		<div className={styles['card-container']}>
 			<div className={styles['card-top']}>
-				<img src={img} alt='item img' />
-				<span>{viewers}</span>
-				<span>{price}</span>
+				<img src={pictures[0] ? pictures[0] : imgNotFound} alt='item img' />
+				{/* <span>{viewers}</span> */}
+				
 			</div>
 			<div className={styles['card-content']}>
 				<p className={styles['card-category']}>
-					{category} · {location}
+					{category} · {conditionRating[condition]}
 				</p>
-				<p className={styles['card-description']}>{desc}</p>
-				<p className={styles['card-date']}>Posted on {date}0</p>
-				<p className={styles['card-seller']}>
+				<p className={styles['card-description']}>{title} · ${price}</p>
+				{/* <p className={styles['card-date']}>Posted on {date}</p> */}
+				{/* <p className={styles['card-seller']}>
 					{seller} · {type}
-				</p>
+				</p> */}
 			</div>
 		</div>
 	);

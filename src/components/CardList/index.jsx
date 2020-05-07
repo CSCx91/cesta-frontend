@@ -1,13 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { gql } from 'apollo-boost';
+import { useQuery } from '@apollo/react-hooks';
+
 import styles from './index.module.scss';
 import Card from '../Card';
 import CardImg from '../../assets/images/test-card-img.png';
 
-// Import your testing components here!
-// Feel free to remove any test components that were already here
-
 // Props:
-
 const testProp = {
 	img: CardImg,
 	price: 200,
@@ -20,14 +19,45 @@ const testProp = {
 	type: 'Negotiable',
 };
 
+const GET_ITEMS_QUERY = gql`
+	{
+		Items {
+			id
+			price
+			title
+			condition
+			description
+			pictures
+			category
+			negotiable
+		}
+	}
+`;
+
 const CardList = () => {
+	const { loading, error, data } = useQuery(GET_ITEMS_QUERY);
+
+	if (loading) return 'Loading...';
+	if (error) return `Error! ${error.message}`;
+
 	return (
 		<div className={styles['card-list-container']}>
-			{[...Array(10).keys()].map((element) => {
-				return <Card cardProps={testProp} key={element} />;
+			{data.Items.map((item) => {
+				return <Card cardProps={item} key={item.id} />;
 			})}
 		</div>
 	);
 };
+
+// {
+//   id
+//   price
+//   title
+//   condition
+//   description
+//   pictures
+//   category
+//   negotiable
+// }
 
 export default CardList;
